@@ -1,0 +1,13 @@
+package com.annu.personal_finance_assistant;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PersonalFinanceAssistantApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PersonalFinanceAssistantApplication.class, args);
+	}
+
+}
