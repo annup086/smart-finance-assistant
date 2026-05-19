@@ -3,6 +3,7 @@ package com.annu.personal_finance_assistant.service;
 import com.annu.personal_finance_assistant.dto.request.RegisterRequest;
 import com.annu.personal_finance_assistant.dto.response.RegisterResponse;
 import com.annu.personal_finance_assistant.entity.User;
+import com.annu.personal_finance_assistant.exception.EmailAlreadyExistsException;
 import com.annu.personal_finance_assistant.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class AuthService {
     public RegisterResponse register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already registered");
+            throw new EmailAlreadyExistsException("Email already registered");
         }
 
         String hashedPassword = passwordEncoder.encode(request.getPassword());
