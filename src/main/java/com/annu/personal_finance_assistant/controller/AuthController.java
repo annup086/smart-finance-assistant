@@ -1,6 +1,8 @@
 package com.annu.personal_finance_assistant.controller;
 
+import com.annu.personal_finance_assistant.dto.request.LoginRequest;
 import com.annu.personal_finance_assistant.dto.request.RegisterRequest;
+import com.annu.personal_finance_assistant.dto.response.LoginResponse;
 import com.annu.personal_finance_assistant.dto.response.RegisterResponse;
 import com.annu.personal_finance_assistant.service.AuthService;
 import jakarta.validation.Valid;
@@ -19,5 +21,10 @@ public class AuthController {
     @PostMapping("/register")
     public RegisterResponse register(@Valid @RequestBody RegisterRequest request) {
         return authService.register(request);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@Valid @RequestBody LoginRequest request) {
+        return authService.login(request);
     }
 }
